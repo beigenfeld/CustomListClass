@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace CustomListClassProject
 {
     public class MyList<T> : IEnumerable<T>
+    //implement public interface IEnumerator<T>
     {
 
 
@@ -49,23 +50,27 @@ namespace CustomListClassProject
         {
 
         }
-
-
-
+        
         //Member Methods
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
         public void CaptureValues()
         {
 
         }
 
-        public void Add(T value)
+        public void Add(T data)
         {
+            count += 1;
+            MyList<T> newList = new MyList<T>();
+            foreach (T index in newList)
+            {
+                
+            }
+            
+        }
 
+        public void Remove()
+        {
+            //count--;
         }
 
         private void Zip()
@@ -85,6 +90,11 @@ namespace CustomListClassProject
         }
 
         public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

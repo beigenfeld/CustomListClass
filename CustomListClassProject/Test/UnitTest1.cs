@@ -31,7 +31,7 @@ namespace Test
         //}
 
         [TestMethod]
-        public void Add_something_AddIntToEndOfArray()
+        public void Add_Int_ToEndOfArray()
         {
             //Arrange
             //Add a value of 4 to index 3
@@ -45,7 +45,7 @@ namespace Test
             //Assert.value at index 3 is 4
         }
 
-        public void Add_something_AddStringToEndOfArray()
+        public void Add_String_ToEndOfArray()
         {
             //Arrange
             //Add a value of "four" to index 3
@@ -88,38 +88,39 @@ namespace Test
         }
 
 
-        [TestMethod]
-        public void Add_TestValue_AtAddedIndex()
-        {
-            //Arrange
-            MyList<int> list = new MyList<int>() { 1, 2, 3 };
-            int addedValue = 4;
-            //Act
-            list.Add(addedValue);
-
-            //Assert
-            Assert.AreEqual<int>(list[3], addedValue);
-        }
+        
 
         [TestMethod]
-        public void Add_AddArray_ToEndOfArray()
+        public void Add_Array_ToIndex()
         {
             //Arrange
-            //Add array [4, 5, 6] to the end of [1, 2, 3];
+            //Add array [4, 5, 6] to index 0;
             MyList<Array> myList = new MyList<Array>();
-            Array arrayToAdd = new Array[3];
-            myList = [1, 2, 3];
-            arrayToAdd = [4, 5, 6];
-             
+            int[] arrayToAdd = { 4, 5, 6 };
+            
+            
             //Act
             myList.Add(arrayToAdd);
 
             //Assert
-            
-            //final array is of length 6, [1, 2, 3, 4, 5, 6]
+            Assert.AreEqual(myList[0], arrayToAdd);
+            //
         }
 
+        [TestMethod]
+        public void Add_Count_Increments()
+        {
+            //Arrange
+            MyList<int> list = new MyList<int>();
+            int valueToAdd = 14;
+            int expectedLength = 1;
 
+            //Act
+            list.Add(valueToAdd);
+            //Assert
+            Assert.AreEqual(list.Count, expectedLength);
+            //Count = 1
+        }
 
 
 
