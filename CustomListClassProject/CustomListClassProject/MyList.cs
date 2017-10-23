@@ -16,8 +16,8 @@ namespace CustomListClassProject
 
 
         //Member Variables
-        private int count = 0;
         T[] genericArray;
+        private int count = 0;
 
         //properties
         public T this[int index]
@@ -62,7 +62,6 @@ namespace CustomListClassProject
         {
 
         }
-
 
         public void Add(T value)
         {

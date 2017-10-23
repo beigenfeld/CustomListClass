@@ -11,17 +11,7 @@ namespace CustomListClassProject
         static void Main(string[] args)
         {
 
-            MyList<int> newList = new MyList<int>();
-            newList.Add(8);
-            
-
-
-
-
-
-
-
-
+           
 
 
 
