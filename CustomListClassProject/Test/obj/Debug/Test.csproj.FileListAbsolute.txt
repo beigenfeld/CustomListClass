@@ -1,0 +1,9 @@
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\bin\Debug\Test.dll
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\bin\Debug\Test.pdb
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\bin\Debug\CustomListClassProject.exe
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\bin\Debug\CustomListClassProject.pdb
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\obj\Debug\Test.dll
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\Test\obj\Debug\Test.pdb

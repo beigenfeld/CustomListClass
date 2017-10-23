@@ -1,1 +1,6 @@
 C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\CustomListClassProject\bin\Debug\CustomListClassProject.exe.config
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\CustomListClassProject\obj\Debug\CustomListClassProject.csprojResolveAssemblyReference.cache
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\CustomListClassProject\bin\Debug\CustomListClassProject.exe
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\CustomListClassProject\bin\Debug\CustomListClassProject.pdb
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\CustomListClassProject\obj\Debug\CustomListClassProject.exe
+C:\Users\beige\Desktop\devCodeCamp\CustomListClassProject\CustomListClassProject\CustomListClassProject\obj\Debug\CustomListClassProject.pdb
