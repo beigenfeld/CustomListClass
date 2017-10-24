@@ -18,7 +18,9 @@ namespace CustomListClassProject
 
         //Member Variables
         T[] genericArray;
+        T[] tempArray;
         private int count = 0;
+        private int capacity;
 
         //properties
         public T this[int index]
@@ -43,29 +45,59 @@ namespace CustomListClassProject
 
         }
 
-
+        
 
         //Constructor
+
         public MyList()
         {
-
+            this.capacity = 5;
+            this.genericArray = new T[capacity];
         }
-        
+
+
         //Member Methods
+
         public void CaptureValues()
         {
+            
+        }
 
+        public bool CheckArrayCapacity()
+        {
+            if (capacity/2 <= count)
+            {
+                DoubleArrayCapacity();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void DoubleArrayCapacity()
+        {
+            capacity += capacity;
         }
 
         public void Add(T data)
         {
-            count += 1;
-            MyList<T> newList = new MyList<T>();
-            foreach (T index in newList)
+            bool ArrayGotDoubled = CheckArrayCapacity();
+            if (ArrayGotDoubled)
             {
-                
+                tempArray = new T[capacity];
+                for (int i = 0; i < count; i++)
+                {
+                    tempArray[i] = genericArray[i];
+                }
+                tempArray[count] = data;
+                genericArray = tempArray;
             }
-            
+            else
+            {
+                genericArray[count] = data;
+            }
+            count++;
         }
 
         public void Remove()

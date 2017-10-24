@@ -11,10 +11,10 @@ namespace CustomListClassProject
         static void Main(string[] args)
         {
 
-            //MyList<int> numberList = new MyList<int>();
-            //numberList.Add(4);
-            //Console.WriteLine(numberList[0]);
-            //Console.ReadLine();
+            MyList<int> numberList = new MyList<int>() { 1,2,3,4,5 };
+            numberList.Add(6);
+            Console.WriteLine(numberList[5]);
+            Console.ReadLine();
 
 
 
