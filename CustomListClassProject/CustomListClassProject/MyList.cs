@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClassProject
 {
-    public class MyList<T> : IEnumerable<T>
-    //implement interface IEnumerator<T>
+    public class MyList<T> : IEnumerable<T>, IEnumerator<T>
     {
 
 
@@ -45,7 +44,23 @@ namespace CustomListClassProject
 
         }
 
-        
+        public T Current
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        object IEnumerator.Current
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
 
         //Constructor
         public MyList()
@@ -91,6 +106,12 @@ namespace CustomListClassProject
                 genericArray[count] = data;
             }
             count++;
+        }
+
+        //ADD OVERLOAD
+        public void Add(MyList<T> myList1, MyList<T> myList2)
+        {
+
         }
 
 
@@ -154,14 +175,23 @@ namespace CustomListClassProject
             genericArray = tempArray;
             return instanceExists;
         }
-        
 
+        //REMOVE OVERLOAD
+        public void Remove(MyList<T> myList1, MyList<T> myList2)
+        {
+             
+        }
 
-        
 
         public override string ToString(T data)
         {
-
+            //string newString;
+            //for (int i = 0; i < count; i++)
+            //{
+                
+            //    string stringified = genericArray[i].ToString();
+            //    newString += stringified;
+            //}
         }
 
 
@@ -188,6 +218,19 @@ namespace CustomListClassProject
             throw new NotImplementedException();
         }
 
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
 
+        public bool MoveNext()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Reset()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

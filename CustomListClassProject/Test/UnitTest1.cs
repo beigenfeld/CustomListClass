@@ -84,11 +84,7 @@ namespace Test
             Assert.AreEqual(list.Count, expectedLength);
         }
 
-        ////ADD OVERLOAD
-        //public void Add(MyList<data> myList1, MyList<T> myList2)
-        //{
-
-        //}
+        
 
 
 
@@ -247,13 +243,13 @@ namespace Test
             int[] array2 = new int[3] { 4, 5, 6 };
             int[] array3 = new int[3] { 7, 8, 9 };
             MyList<Array> arrayList = new MyList<Array>() { array1, array2, array3 };
-            MyList<string> stringList = new MyList<string>() { "1 2 3 4 5 6 7 8 9" };
+            string expected = "1 2 3 4 5 6 7 8 9";
 
             //Act
             arrayList.ToString();
 
             //Assert
-            Assert.AreEqual(arrayList, stringList);
+            Assert.AreEqual(arrayList, expected);
         }
 
 
