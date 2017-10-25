@@ -10,14 +10,13 @@ namespace CustomListClassProject
     public class MyList<T> : IEnumerable<T>, IEnumerator<T>
     {
 
-
-
-
-
+        
 
         //Member Variables
         T[] genericArray;
         T[] tempArray;
+        MyList<T> tempList;
+        MyList<T> zippedList;
         private int count = 0;
         private int capacity;
 
@@ -60,6 +59,31 @@ namespace CustomListClassProject
             }
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool MoveNext()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Reset()
+        {
+            throw new NotImplementedException();
+        }
+
 
 
         //Constructor
@@ -87,6 +111,7 @@ namespace CustomListClassProject
         {
             capacity += capacity;
         }
+
 
         public void Add(T data)
         {
@@ -183,54 +208,37 @@ namespace CustomListClassProject
         }
 
 
-        public override string ToString(T data)
+        //public override string ToString()
+        //{
+        //    string newString;
+        //    for (int i = 0; i < count; i++)
+        //    {
+
+        //        string stringified = genericArray[i].ToString();
+        //        return newString += stringified;
+        //    }
+        //}
+
+
+
+        public MyList<T> Zip(MyList<T> myList1, MyList<T> myList2)
         {
-            //string newString;
-            //for (int i = 0; i < count; i++)
-            //{
-                
-            //    string stringified = genericArray[i].ToString();
-            //    newString += stringified;
-            //}
+            MyList<T> zippedList;
+            for (int i = 0; i < myList1.count; i++)
+            {
+                tempList.Add(myList1[i]);
+                tempList.Add(myList2[i]);
+            }
+             zippedList = tempList;
+             return zippedList;
         }
 
-
-
-
-
-        public void Zip()
-        {
-
-        }
 
         private void SortBonus()
         {
 
         }
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool MoveNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
