@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CustomListClassProject
 {
     public class MyList<T> : IEnumerable<T>
-    //implement public interface IEnumerator<T>
+    //implement interface IEnumerator<T>
     {
 
 
@@ -57,11 +57,7 @@ namespace CustomListClassProject
 
 
         //Member Methods
-
-        public void CaptureValues()
-        {
-            
-        }
+        
 
         public bool CheckArrayCapacity()
         {
@@ -100,12 +96,73 @@ namespace CustomListClassProject
             count++;
         }
 
-        public void Remove()
+
+        public bool DoesInstanceExist(T data)
         {
-            //count--;
+            bool instanceExists = false;
+            for (int i = 0; i < count; i++)
+            {
+                if (genericArray[i].Equals(data))
+                {
+                    instanceExists =  true;
+                }
+            }
+            return instanceExists;
         }
 
-        private void Zip()
+        public int FindFirstInstance(T data)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (genericArray[i].Equals(data))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+            
+        }
+
+        public bool Remove(T data)
+        {
+            bool instanceExists = DoesInstanceExist(data);
+            if (instanceExists)
+            {
+                int firstInstance = FindFirstInstance(data);
+                tempArray = new T[count];
+                int currentCount = count;
+                for (int i = 0; i < currentCount; i++)
+                {
+                    if (i < firstInstance)/*originalList[i] != originalList[firstInstance]    */
+                    {
+                        tempArray[i] = genericArray[i];
+                    }
+                    else if (i==firstInstance)
+                    {
+                        count--;
+                    }
+                    else if (i > firstInstance)
+                    {
+                        tempArray[i-1] = genericArray[i];
+                    }
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Instance does not exist in this List. Nothing removed.");
+                
+            }
+            genericArray = tempArray;
+            return instanceExists;
+        }
+        
+
+
+
+
+        public void Zip()
         {
 
         }
