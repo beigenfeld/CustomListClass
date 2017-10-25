@@ -200,26 +200,60 @@ namespace Test
 
 
 
-        [TestMethod]
-        public void Zip_TwoArrays_AreZipped()
-        {
-            //Arrange
+
+
+
+
+        //[TestMethod]
+        //public void Zip_TwoArrays_AreZipped()
+        //{
+        //    //Arrange
             
             
-            int[] oddArray = { 1, 3, 5 };
-            int[] evenArray = { 2, 4, 6 };
-            int[] combinedArray = { 1, 2, 3, 4, 5, 6 };
-            MyList<Array> oddList = new MyList<Array>() { oddArray };
-            MyList<Array> evenList = new MyList<Array>() { evenArray };
-            MyList<Array> arrayList = new MyList<Array>() { oddArray, evenArray };
+        //    int[] oddArray = { 1, 3, 5 };
+        //    int[] evenArray = { 2, 4, 6 };
+        //    int[] combinedArray = { 1, 2, 3, 4, 5, 6 };
+        //    MyList<Array> oddList = new MyList<Array>() { oddArray };
+        //    MyList<Array> evenList = new MyList<Array>() { evenArray };
+        //    MyList<Array> arrayList = new MyList<Array>() { oddArray, evenArray };
 
-            //Act
-            .Zip();
+        //    //Act
+        //    .Zip();
 
-            //Assert
-            Assert.AreEqual(arrayList[0], combinedArray);
-        }
+        //    //Assert
+        //    Assert.AreEqual(arrayList[0], combinedArray);
+        //}
 
+        //[TestMethod]
+        //public void Zip_Arrays_OfDifferentLength()
+        //{
+        //    //Arrange
+        //    int[] oddArray = { 1, 3, 5 };
+        //    int[] evenArray = { 2, 4, 6, 8, 10 };
+        //    //Act
+        //    //Assert
+        //    //
+        //}
+
+        //public void Zip_StringArrays_AreZipped()
+        //{
+        //    //Arrange
+        //    string[] oddArray = { "one", "three", "five" };
+        //    string[] evenArray = { "two", "four", "six" };
+        //    //Act
+        //    //Assert
+        //    //
+        //}
+
+        //public void Zip_BoolArrays_AreZipped()
+        //{
+        //    //Arrange
+        //    bool[] trueArray = { true, true, true };
+        //    bool[] falseArray = { false, false, false };
+        //    //Act
+        //    //Assert
+        //    //
+        //}
 
 
 
@@ -236,10 +270,7 @@ namespace Test
 
 
 
-
-
-
-
+        
 
 
 
