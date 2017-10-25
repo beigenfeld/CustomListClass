@@ -84,6 +84,11 @@ namespace Test
             Assert.AreEqual(list.Count, expectedLength);
         }
 
+        ////ADD OVERLOAD
+        //public void Add(MyList<data> myList1, MyList<T> myList2)
+        //{
+
+        //}
 
 
 
@@ -153,12 +158,7 @@ namespace Test
             //Assert
             Assert.AreEqual(arrayList[1], array3);
         }
-
-
-
-
-
-
+        
         [TestMethod]
         public void Remove_CheckReturn_True()
         {
@@ -200,6 +200,64 @@ namespace Test
 
 
 
+        [TestMethod]
+        public void ToString_Int_ToString()
+        {
+            //Arrange
+            MyList<int> intList = new MyList<int>() { 1, 2, 3 };
+            string expected = "1, 2, 3";
+
+            //Act
+            intList.ToString();
+
+            //Assert
+            Assert.AreEqual(intList, expected);
+        }
+
+        public void ToString_Bool_ToString()
+        {
+            //Arrange
+            MyList<bool> boolList = new MyList<bool>() { true, false, true };
+            string expected = "true false true";
+
+            //Act
+            boolList.ToString();
+
+            //Assert
+            Assert.AreEqual( boolList, expected);
+        }
+
+        public void ToString_String_ToString()
+        {
+            //Arrange
+            MyList<string> stringList = new MyList<string>() { "I'm", "a", "string!" };
+            string expected = "I'm a string!" ;
+
+            //Act
+            stringList.ToString();
+
+            //Assert
+            Assert.AreEqual (stringList, expected);
+        }
+
+        public void ToString_Array_ToString()
+        {
+            //Arrange
+            int[] array1 = new int[3] { 1, 2, 3 };
+            int[] array2 = new int[3] { 4, 5, 6 };
+            int[] array3 = new int[3] { 7, 8, 9 };
+            MyList<Array> arrayList = new MyList<Array>() { array1, array2, array3 };
+            MyList<string> stringList = new MyList<string>() { "1 2 3 4 5 6 7 8 9" };
+
+            //Act
+            arrayList.ToString();
+
+            //Assert
+            Assert.AreEqual(arrayList, stringList);
+        }
+
+
+
 
 
 
@@ -208,8 +266,8 @@ namespace Test
         //public void Zip_TwoArrays_AreZipped()
         //{
         //    //Arrange
-            
-            
+
+
         //    int[] oddArray = { 1, 3, 5 };
         //    int[] evenArray = { 2, 4, 6 };
         //    int[] combinedArray = { 1, 2, 3, 4, 5, 6 };
@@ -270,7 +328,7 @@ namespace Test
 
 
 
-        
+
 
 
 

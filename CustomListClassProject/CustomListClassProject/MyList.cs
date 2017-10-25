@@ -48,7 +48,6 @@ namespace CustomListClassProject
         
 
         //Constructor
-
         public MyList()
         {
             this.capacity = 5;
@@ -57,8 +56,6 @@ namespace CustomListClassProject
 
 
         //Member Methods
-        
-
         public bool CheckArrayCapacity()
         {
             if (capacity/2 <= count)
@@ -160,18 +157,21 @@ namespace CustomListClassProject
         
 
 
+        
+
+        public override string ToString(T data)
+        {
+
+        }
+
+
+
 
 
         public void Zip()
         {
 
         }
-
-        private void ToStringOverride()
-        {
-
-        }
-
 
         private void SortBonus()
         {
