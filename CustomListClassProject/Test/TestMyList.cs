@@ -193,7 +193,7 @@ namespace Test
         //++++++++ PLUS OPERATOR OVERLOAD ++++++++++ PLUS OPERATOR OVERLOAD ++++++++++ 
 
         [TestMethod]
-        public void PlusOverload_AddTwoMyLists_Combined()
+        public void PlusOverload_AddIntMyLists_Combined()
         {
             //Arrange
             MyList<int> myList1 = new MyList<int>() { 1, 2, 3 };
@@ -204,6 +204,33 @@ namespace Test
             //Assert
             Assert.AreEqual(expected[2], result[2]);
         }
+
+        [TestMethod]
+        public void PlusOverload_AddStringMyLists_Combined()
+        {
+            //Arrange
+            MyList<string> myList1 = new MyList<string>() { "one", "two", "three" };
+            MyList<string> myList2 = new MyList<string>() { "four", "five", "six" };
+            MyList<string> expected = new MyList<string>() { "one", "two", "three", "four", "five", "six" };
+            //Act
+            MyList<string> result = myList1 + myList2;
+            //Assert
+            Assert.AreEqual(expected[2], result[2]);
+        }
+
+        [TestMethod]
+        public void PlusOverload_AddBoolMyLists_Combined()
+        {
+            //Arrange
+            MyList<bool> myList1 = new MyList<bool>() { true, false, true };
+            MyList<bool> myList2 = new MyList<bool>() { false, true, false };
+            MyList<bool> expected = new MyList<bool>() { true, false, true, false, true, false };
+            //Act
+            MyList<bool> result = myList1 + myList2;
+            //Assert
+            Assert.AreEqual(expected[3], result[3]);
+        }
+
 
 
 
@@ -233,6 +260,19 @@ namespace Test
             MyList<string> result = myList1 - myList2;
             //Assert
             Assert.AreEqual(expected[2], result[2]);
+        }
+
+        [TestMethod]
+        public void MinusOverload_SubtractBoolMyLists_MatchingValuesRemoved()
+        {
+            //Arrange
+            MyList<bool> myList1 = new MyList<bool>() { true, false, true, false, true };
+            MyList<bool> myList2 = new MyList<bool>() {false, false };
+            MyList<bool> expected = new MyList<bool>() { true, true, true};
+            //Act
+            MyList<bool> result = myList1 - myList2;
+            //Assert
+            Assert.AreEqual(expected[1], result[1]);
         }
 
         // TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING

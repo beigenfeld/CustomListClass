@@ -104,8 +104,8 @@ namespace CustomListClassProject
         
         public void Add(T data)
         {
-            bool ArrayGotDoubled = CheckArrayCapacity();
-            if (ArrayGotDoubled)
+            bool arrayGotDoubled = CheckArrayCapacity();
+            if (arrayGotDoubled)
             {
                 tempArray = new T[capacity];
                 for (int i = 0; i < count; i++)
@@ -124,18 +124,18 @@ namespace CustomListClassProject
 
         public static MyList<T> operator + (MyList<T> myList1, MyList<T> myList2)
         {
-            MyList<T> addedMyList = new MyList<T>();
-            addedMyList.count = myList1.count + myList2.count;
+            MyList<T> tempList = new MyList<T>();
             for (int i = 0; i < myList1.count; i++)
             {
-                addedMyList.Add(myList1[i]);
+                tempList.Add(myList1[i]);
             }
 
-            for (int i = 0; i < myList2.count; i++)
+            for (int j = 0; j < myList2.count; j++)
             {
-                addedMyList.Add(myList2[i]);
+                tempList.Add(myList2[j]);
             }
-            return addedMyList;
+            tempList.count = myList1.count + myList2.count;
+            return tempList;
         }
 
 
@@ -144,9 +144,6 @@ namespace CustomListClassProject
 
             MyList<T> tempList = myList1;
             int tempCount = myList1.count;
-            
-            //Take index from list 2, loop through list 1, 
-            //find first instance and remove
             for (int i = 0; i<myList2.count; i++)
             {
                 for (int j = 0; j<myList1.count; j++)
