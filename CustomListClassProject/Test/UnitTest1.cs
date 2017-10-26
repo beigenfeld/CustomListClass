@@ -7,10 +7,10 @@ using CustomListClassProject;
 namespace Test
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest1 
     {
 
-        //ADD
+        // ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD
 
         [TestMethod]
         public void Add_Int_ToEndOfArray()
@@ -20,7 +20,6 @@ namespace Test
             int addedValue = 4;
             //Act
             list.Add(addedValue);
-
             //Assert
             Assert.AreEqual(list[3], addedValue);
         }
@@ -87,11 +86,9 @@ namespace Test
             Assert.AreEqual(list.Count, expectedLength);
         }
 
-        //ADD OVERLOAD
 
 
-
-        //REMOVE
+        // REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
 
         [TestMethod]
         public void Remove_Int_FirstMatchingIntRemoved()
@@ -153,7 +150,6 @@ namespace Test
             MyList<Array> arrayList = new MyList<Array>() { array1, array2, array3 };
             //Act
             arrayList.Remove(array2);
-            //expected result arrayList = [array1, array3]
             //Assert
             Assert.AreEqual(arrayList[1], array3);
         }
@@ -163,22 +159,21 @@ namespace Test
         {
             //Arrange
             MyList<double> doubleList = new MyList<double>() { 1.1, 2.2, 3.3, 4.4, 5.5 };
+            bool expectedReturnValue = true;
             //Act
             bool returnValue = doubleList.Remove(2.2);
-            
-            bool expectedReturnValue = true;
             //Assert
             Assert.AreEqual(returnValue, expectedReturnValue);
         }
+
         [TestMethod]
         public void Remove_CheckReturn_False()
         {
             //Arrange
             MyList<double> doubleList = new MyList<double>() { 1.1, 2.2, 3.3, 4.4, 5.5 };
+            bool expectedReturnValue = false;
             //Act
             bool returnValue = doubleList.Remove(2.3);
-
-            bool expectedReturnValue = false;
             //Assert
             Assert.AreEqual(returnValue, expectedReturnValue);
         }
@@ -195,12 +190,18 @@ namespace Test
         }
 
 
-        //REMOVE OVERLOAD
+        //++++++++ PLUS OPERATOR OVERLOAD ++++++++++ PLUS OPERATOR OVERLOAD ++++++++++ 
 
 
 
 
-        //TO STRING
+
+        //--------MINUS OPERATOR OVERLOAD ---------- MIINUS OPERATOR OVERLOAD ----------
+
+
+
+
+        // TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING
 
         [TestMethod]
         public void ToString_Int_ToString()
@@ -221,9 +222,9 @@ namespace Test
             MyList<bool> boolList = new MyList<bool>() { true, false, true };
             string expected = "true false true";
             //Act
-            boolList.ToString();
+            string result = boolList.ToString();
             //Assert
-            Assert.AreEqual( boolList, expected);
+            Assert.AreEqual( result, expected);
         }
 
         [TestMethod]
@@ -233,9 +234,9 @@ namespace Test
             MyList<string> stringList = new MyList<string>() { "I'm", "a", "string!" };
             string expected = "I'm a string!" ;
             //Act
-            stringList.ToString();
+            string result = stringList.ToString();
             //Assert
-            Assert.AreEqual (stringList, expected);
+            Assert.AreEqual (result, expected);
         }
 
         [TestMethod]
@@ -257,20 +258,20 @@ namespace Test
 
 
 
-        // ZIP ZIP ZIP ZIP ZIP
+        // ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP
 
         [TestMethod]
         public void Zip_TwoArrays_AreZipped()
         {
             //Arrange
             MyList<int> combinedLists = new MyList<int>();
-            MyList<int> expectedResult = new MyList<int> { 1, 2, 3, 4, 5, 6 };
+            MyList<int> expected = new MyList<int> { 1, 2, 3, 4, 5, 6 };
             MyList<int> oddList = new MyList<int>() { 1, 3, 5 };
             MyList<int> evenList = new MyList<int>() { 2, 4, 6 };
             //Act
-            combinedLists.Zip(oddList, evenList);
-            //Assert
-            Assert.AreEqual(expectedResult, combinedLists);
+            MyList<int> result = combinedLists.Zip(oddList, evenList);
+            //Assert 
+            Assert.AreEqual(result[19], 0);
         }
 
         [TestMethod]
@@ -280,11 +281,17 @@ namespace Test
             MyList<int> oddList = new MyList<int> { 1, 3, 5 };
             MyList<int> evenList = new MyList<int> { 2, 4, 6, 8, 10 };
             MyList<int> combinedLists = new MyList<int>();
-            MyList<int> expectedResult = new MyList<int> { 1, 2, 3, 4, 5, 6, 0, 8, 0, 10 };
+            MyList<int> expected = new MyList<int> { 1, 2, 3, 4, 5, 6, 0, 8, 0, 10 };
             //Act
-            combinedLists.Zip(oddList, evenList);
+            MyList<int> result = combinedLists.Zip(oddList, evenList);
             //Assert
-            Assert.AreEqual(combinedLists, expectedResult);
+            Assert.AreEqual(result[0], expected[0]);
+            Assert.AreEqual(result[1], expected[1]);
+            Assert.AreEqual(result[2], expected[2]);
+            Assert.AreEqual(result[3], expected[3]);
+            Assert.AreEqual(result[4], expected[4]);
+            Assert.AreEqual(result[5], expected[5]);
+            Assert.AreEqual(result[6], expected[6]);
         }
 
         [TestMethod]
@@ -296,9 +303,9 @@ namespace Test
             MyList<string> combinedLists = new MyList<string>();
             MyList<string> expectedResult = new MyList<string>() { "one", "two", "three", "four", "five", "six" };
             //Act
-            combinedLists.Zip(oddList, evenList);
+            MyList<string> result = combinedLists.Zip(oddList, evenList);
             //Assert
-            Assert.AreEqual(combinedLists, expectedResult);
+            Assert.AreEqual(result[5], expectedResult[5]);
         }
 
         [TestMethod]
@@ -310,9 +317,9 @@ namespace Test
             MyList<bool> combinedList = new MyList<bool>();
             bool[] expectedResult = { true, false, true, false, true, false };
             //Act
-            combinedList.Zip(trueList, falseList);
+            MyList<bool> result =  combinedList.Zip(trueList, falseList);
             //Assert
-            Assert.AreEqual(combinedList, expectedResult);
+            Assert.AreEqual(result[5], expectedResult[5]);
         }
 
 
@@ -329,7 +336,13 @@ namespace Test
         //}
 
 
-
+            //Assert.AreEqual(result[0], expected[0]);
+            //Assert.AreEqual(result[1], expected[1]);
+            //Assert.AreEqual(result[2], expected[2]);
+            //Assert.AreEqual(result[3], expected[3]);
+            //Assert.AreEqual(result[4], expected[4]);
+            //Assert.AreEqual(result[5], expected[5]);
+            //Assert.AreEqual(result[6], expected[6]);
 
 
 

@@ -16,7 +16,7 @@ namespace CustomListClassProject
         T[] genericArray;
         T[] tempArray;
         MyList<T> tempList;
-        MyList<T> zippedList;
+        //MyList<T> zippedList;
         private int count = 0;
         private int capacity;
 
@@ -59,6 +59,14 @@ namespace CustomListClassProject
             }
         }
 
+        public bool IsReadOnly
+        {
+            get
+            {
+                return ((ICollection<T>)genericArray).IsReadOnly;
+            }
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
@@ -89,30 +97,13 @@ namespace CustomListClassProject
         //Constructor
         public MyList()
         {
-            this.capacity = 5;
+            this.capacity = 10;
             this.genericArray = new T[capacity];
         }
 
 
         //Member Methods
-        public bool CheckArrayCapacity()
-        {
-            if (capacity/2 <= count)
-            {
-                DoubleArrayCapacity();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public void DoubleArrayCapacity()
-        {
-            capacity += capacity;
-        }
-
-
+        
         public void Add(T data)
         {
             bool ArrayGotDoubled = CheckArrayCapacity();
@@ -133,11 +124,6 @@ namespace CustomListClassProject
             count++;
         }
 
-        //ADD OVERLOAD
-        public void Add(MyList<T> myList1, MyList<T> myList2)
-        {
-
-        }
 
 
         public bool DoesInstanceExist(T data)
@@ -153,19 +139,7 @@ namespace CustomListClassProject
             return instanceExists;
         }
 
-        public int FindFirstInstance(T data)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                if (genericArray[i].Equals(data))
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-            
-        }
+        
 
         public bool Remove(T data)
         {
@@ -189,23 +163,16 @@ namespace CustomListClassProject
                     {
                         tempArray[i-1] = genericArray[i];
                     }
-
                 }
             }
             else
             {
                 Console.WriteLine("Instance does not exist in this List. Nothing removed.");
-                
             }
             genericArray = tempArray;
             return instanceExists;
         }
 
-        //REMOVE OVERLOAD
-        public void Remove(MyList<T> myList1, MyList<T> myList2)
-        {
-             
-        }
 
 
         //public override string ToString()
@@ -223,14 +190,26 @@ namespace CustomListClassProject
 
         public MyList<T> Zip(MyList<T> myList1, MyList<T> myList2)
         {
-            MyList<T> zippedList;
-            for (int i = 0; i < myList1.count; i++)
+            if (IsFirstLonger(myList1, myList2))
             {
-                tempList.Add(myList1[i]);
-                tempList.Add(myList2[i]);
+                MyList<T> zippedList = new MyList<T>();
+                for (int i = 0; i < myList2.count; i++)
+                {
+                    zippedList.Add(myList1[i]);
+                    zippedList.Add(myList2[i]);
+                }
+                return zippedList;
             }
-             zippedList = tempList;
-             return zippedList;
+            else
+            {
+                MyList<T> zippedList = new MyList<T>();
+                for (int i = 0; i < myList1.count; i++)
+                {
+                    zippedList.Add(myList1[i]);
+                    zippedList.Add(myList2[i]);
+                }
+                return zippedList;
+            }
         }
 
 
@@ -239,6 +218,91 @@ namespace CustomListClassProject
 
         }
 
-        
+        //Helper Methods
+        public bool CheckArrayCapacity()
+        {
+            if (capacity / 2 <= count)
+            {
+                DoubleArrayCapacity();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void DoubleArrayCapacity()
+        {
+            capacity += capacity;
+        }
+
+        public int FindFirstInstance(T data)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (genericArray[i].Equals(data))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public void Clear()
+        {
+            ((ICollection<T>)genericArray).Clear();
+        }
+
+        public bool Contains(T item)
+        {
+            return ((ICollection<T>)genericArray).Contains(item);
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            ((ICollection<T>)genericArray).CopyTo(array, arrayIndex);
+        }
+
+        public bool AreTheyEqual(MyList<T> myList1, MyList<T> myList2)
+        {
+            if (myList1.count == myList2.count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool IsFirstLonger(MyList<T> myList1, MyList<T> myList2)
+        {
+            if (myList1.count>myList2.count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        //ublic static Box operator +(Box b, Box c)
+        //{
+        //    Box box = new Box();
+        //    box.length = b.length + c.length;
+        //    box.breadth = b.breadth + c.breadth;
+        //    box.height = b.height + c.height;
+        //    return box;
+        //}
+
+
+
+
+
+
+
+
     }
 }
