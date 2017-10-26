@@ -7,7 +7,7 @@ using CustomListClassProject;
 namespace Test
 {
     [TestClass]
-    public class UnitTest1 
+    public class TestMyList 
     {
 
         // ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD
@@ -192,14 +192,48 @@ namespace Test
 
         //++++++++ PLUS OPERATOR OVERLOAD ++++++++++ PLUS OPERATOR OVERLOAD ++++++++++ 
 
+        [TestMethod]
+        public void PlusOverload_AddTwoMyLists_Combined()
+        {
+            //Arrange
+            MyList<int> myList1 = new MyList<int>() { 1, 2, 3 };
+            MyList<int> myList2 = new MyList<int>() { 4 ,5, 6 };
+            MyList<int> expected = new MyList<int>() { 1, 2, 3, 4, 5, 6 };
+            //Act
+            MyList<int> result = myList1 + myList2;
+            //Assert
+            Assert.AreEqual(expected[2], result[2]);
+        }
 
 
 
+        //--------MINUS OPERATOR OVERLOAD ---------- MINUS OPERATOR OVERLOAD ----------
 
-        //--------MINUS OPERATOR OVERLOAD ---------- MIINUS OPERATOR OVERLOAD ----------
+        [TestMethod]
+        public void MinusOverload_SubtractIntLists_MatchingValuesRemoved()
+        {
+            //Arrange
+            MyList<int> myList1 = new MyList<int>() { 1, 2, 3, 4, 5, 6 };
+            MyList<int> myList2 = new MyList<int>() { 1, 3, 5 };
+            MyList<int> expected = new MyList<int>() { 2, 4, 6 };
+            //Act
+            MyList<int> result = myList1 - myList2;
+            //Assert
+            Assert.AreEqual(expected[2], result[2]);
+        }
 
-
-
+        [TestMethod]
+        public void MinusOverload_SubtractStringMyLists_MatchingValuesRemoved()
+        {
+            //Arrange
+            MyList<string> myList1 = new MyList<string>() { "1", "2", "3", "4", "5", "6" };
+            MyList<string> myList2 = new MyList<string>() { "1", "3", "5" };
+            MyList<string> expected = new MyList<string>() { "2", "4", "6" };
+            //Act
+            MyList<string> result = myList1 - myList2;
+            //Assert
+            Assert.AreEqual(expected[2], result[2]);
+        }
 
         // TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING
 
@@ -208,11 +242,11 @@ namespace Test
         {
             //Arrange
             MyList<int> intList = new MyList<int>() { 1, 2, 3 };
-            string expected = "1, 2, 3";
+            string expected = "123";
             //Act
             string result = intList.ToString();
             //Assert
-            Assert.AreEqual(result, expected); 
+            Assert.AreEqual(result, expected);  
         }
 
         [TestMethod]
@@ -220,7 +254,7 @@ namespace Test
         {
             //Arrange
             MyList<bool> boolList = new MyList<bool>() { true, false, true };
-            string expected = "true false true";
+            string expected = "TrueFalseTrue";
             //Act
             string result = boolList.ToString();
             //Assert
@@ -232,29 +266,12 @@ namespace Test
         {
             //Arrange
             MyList<string> stringList = new MyList<string>() { "I'm", "a", "string!" };
-            string expected = "I'm a string!" ;
+            string expected = "I'mastring!" ;
             //Act
             string result = stringList.ToString();
             //Assert
             Assert.AreEqual (result, expected);
         }
-
-        [TestMethod]
-        public void ToString_Array_ToString()
-        {
-            //Arrange
-            int[] array1 = new int[3] { 1, 2, 3 };
-            int[] array2 = new int[3] { 4, 5, 6 };
-            int[] array3 = new int[3] { 7, 8, 9 };
-            MyList<Array> arrayList = new MyList<Array>() { array1, array2, array3 };
-            string expected = "1 2 3 4 5 6 7 8 9";
-            //Act
-            arrayList.ToString();
-            //Assert
-            Assert.AreEqual(arrayList, expected);
-        }
-
-
 
 
 

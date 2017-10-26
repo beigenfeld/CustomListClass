@@ -15,8 +15,6 @@ namespace CustomListClassProject
         //Member Variables
         T[] genericArray;
         T[] tempArray;
-        MyList<T> tempList;
-        //MyList<T> zippedList;
         private int count = 0;
         private int capacity;
 
@@ -124,22 +122,45 @@ namespace CustomListClassProject
             count++;
         }
 
-
-
-        public bool DoesInstanceExist(T data)
+        public static MyList<T> operator + (MyList<T> myList1, MyList<T> myList2)
         {
-            bool instanceExists = false;
-            for (int i = 0; i < count; i++)
+            MyList<T> addedMyList = new MyList<T>();
+            addedMyList.count = myList1.count + myList2.count;
+            for (int i = 0; i < myList1.count; i++)
             {
-                if (genericArray[i].Equals(data))
-                {
-                    instanceExists =  true;
-                }
+                addedMyList.Add(myList1[i]);
             }
-            return instanceExists;
+
+            for (int i = 0; i < myList2.count; i++)
+            {
+                addedMyList.Add(myList2[i]);
+            }
+            return addedMyList;
         }
 
-        
+
+        public static MyList<T> operator - (MyList<T> myList1, MyList<T> myList2)
+        {
+
+            MyList<T> tempList = myList1;
+            int tempCount = myList1.count;
+            
+            //Take index from list 2, loop through list 1, 
+            //find first instance and remove
+            for (int i = 0; i<myList2.count; i++)
+            {
+                for (int j = 0; j<myList1.count; j++)
+                {
+                        tempList.Remove(myList2[i]);
+                        tempCount--;
+                }
+                
+            }
+            myList1.count = tempCount;
+            myList1 = tempList;
+            return myList1;
+        }
+
 
         public bool Remove(T data)
         {
@@ -151,7 +172,7 @@ namespace CustomListClassProject
                 int currentCount = count;
                 for (int i = 0; i < currentCount; i++)
                 {
-                    if (i < firstInstance)/*originalList[i] != originalList[firstInstance]    */
+                    if (i < firstInstance)
                     {
                         tempArray[i] = genericArray[i];
                     }
@@ -175,16 +196,16 @@ namespace CustomListClassProject
 
 
 
-        //public override string ToString()
-        //{
-        //    string newString;
-        //    for (int i = 0; i < count; i++)
-        //    {
-
-        //        string stringified = genericArray[i].ToString();
-        //        return newString += stringified;
-        //    }
-        //}
+        public override string ToString()
+        {
+            string newString = "";
+            for (int i = 0; i < count; i++)
+            {
+                string stringified = genericArray[i].ToString();
+                newString += stringified;
+            }
+            return newString;
+        }
 
 
 
@@ -232,6 +253,19 @@ namespace CustomListClassProject
             }
         }
 
+        public bool DoesInstanceExist(T data)
+        {
+            bool instanceExists = false;
+            for (int i = 0; i < count; i++)
+            {
+                if (genericArray[i].Equals(data))
+                {
+                    instanceExists = true;
+                }
+            }
+            return instanceExists;
+        }
+
         public void DoubleArrayCapacity()
         {
             capacity += capacity;
@@ -247,21 +281,6 @@ namespace CustomListClassProject
                 }
             }
             return -1;
-        }
-
-        public void Clear()
-        {
-            ((ICollection<T>)genericArray).Clear();
-        }
-
-        public bool Contains(T item)
-        {
-            return ((ICollection<T>)genericArray).Contains(item);
-        }
-
-        public void CopyTo(T[] array, int arrayIndex)
-        {
-            ((ICollection<T>)genericArray).CopyTo(array, arrayIndex);
         }
 
         public bool AreTheyEqual(MyList<T> myList1, MyList<T> myList2)
@@ -288,21 +307,13 @@ namespace CustomListClassProject
         }
 
 
-        //ublic static Box operator +(Box b, Box c)
-        //{
-        //    Box box = new Box();
-        //    box.length = b.length + c.length;
-        //    box.breadth = b.breadth + c.breadth;
-        //    box.height = b.height + c.height;
-        //    return box;
-        //}
+        
+        
 
 
 
 
 
 
-
-
-    }
+        }
 }
