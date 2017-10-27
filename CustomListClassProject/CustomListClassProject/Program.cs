@@ -10,14 +10,14 @@ namespace CustomListClassProject
     {
         static void Main(string[] args)
         {
-            MyList<int> myList1 = new MyList<int>() { 1, 2, 3 };
-            MyList<int> myList2 = new MyList<int>() { 4, 5, 6 };
-            MyList<int> expected = new MyList<int>() { 1, 2, 3, 4, 5, 6 };
-            //Act
-            MyList<int> result = myList1 + myList2;
 
+            MyList<int> intList = new MyList<int>() { 5, 4, 3, 2, 1 };
+            intList.SortBonus(intList);
 
-
+            for (int i = 0; i < intList.Count; i++)
+            {
+                Console.WriteLine(intList[i]);
+            }
 
             Console.ReadLine();
 

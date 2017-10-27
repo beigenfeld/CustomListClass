@@ -9,23 +9,19 @@ namespace CustomListClassProject
 {
     public class MyList<T> : IEnumerable<T>, IEnumerator<T>
     {
-
-        
-
         //Member Variables
         T[] genericArray;
         T[] tempArray;
         private int count = 0;
         private int capacity;
 
-        //properties
+        //Properties
         public T this[int index]
         {
             get
             {
                 return genericArray[index];
             }
-
             set
             {
                 genericArray[index] = value;
@@ -38,7 +34,6 @@ namespace CustomListClassProject
             {
                 return count;
             }
-
         }
 
         public T Current
@@ -89,9 +84,7 @@ namespace CustomListClassProject
         {
             throw new NotImplementedException();
         }
-
-
-
+        
         //Constructor
         public MyList()
         {
@@ -99,9 +92,8 @@ namespace CustomListClassProject
             this.genericArray = new T[capacity];
         }
 
-
         //Member Methods
-        
+
         public void Add(T data)
         {
             bool arrayGotDoubled = CheckArrayCapacity();
@@ -129,7 +121,6 @@ namespace CustomListClassProject
             {
                 tempList.Add(myList1[i]);
             }
-
             for (int j = 0; j < myList2.count; j++)
             {
                 tempList.Add(myList2[j]);
@@ -137,11 +128,9 @@ namespace CustomListClassProject
             tempList.count = myList1.count + myList2.count;
             return tempList;
         }
-
-
+        
         public static MyList<T> operator - (MyList<T> myList1, MyList<T> myList2)
         {
-
             MyList<T> tempList = myList1;
             int tempCount = myList1.count;
             for (int i = 0; i<myList2.count; i++)
@@ -151,14 +140,12 @@ namespace CustomListClassProject
                         tempList.Remove(myList2[i]);
                         tempCount--;
                 }
-                
             }
             myList1.count = tempCount;
             myList1 = tempList;
             return myList1;
         }
-
-
+        
         public bool Remove(T data)
         {
             bool instanceExists = DoesInstanceExist(data);
@@ -190,9 +177,7 @@ namespace CustomListClassProject
             genericArray = tempArray;
             return instanceExists;
         }
-
-
-
+        
         public override string ToString()
         {
             string newString = "";
@@ -203,9 +188,7 @@ namespace CustomListClassProject
             }
             return newString;
         }
-
-
-
+        
         public MyList<T> Zip(MyList<T> myList1, MyList<T> myList2)
         {
             if (IsFirstLonger(myList1, myList2))
@@ -230,13 +213,40 @@ namespace CustomListClassProject
             }
         }
 
-
-        private void SortBonus()
+        public MyList<int> SortBonus(MyList<int> myList)
         {
-
+            int tmp, minimum;
+            for (int i = 0; i < myList.count - 1; i++)
+            {
+                minimum = i;
+                for (int j = i + 1; j < myList.count; j++)
+                {
+                    if (myList[j] < myList[minimum])
+                    {
+                        minimum = j;
+                    }
+                }
+                tmp = myList[minimum];
+                myList[minimum] = myList[i];
+                myList[i] = tmp;
+            }
+            return myList;
         }
+        //I used a Simple Selection Sorting algorithm for data type <int>
 
         //Helper Methods
+        public bool AreTheyEqual(MyList<T> myList1, MyList<T> myList2)
+        {
+            if (myList1.count == myList2.count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool CheckArrayCapacity()
         {
             if (capacity / 2 <= count)
@@ -279,18 +289,7 @@ namespace CustomListClassProject
             }
             return -1;
         }
-
-        public bool AreTheyEqual(MyList<T> myList1, MyList<T> myList2)
-        {
-            if (myList1.count == myList2.count)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
         public bool IsFirstLonger(MyList<T> myList1, MyList<T> myList2)
         {
             if (myList1.count>myList2.count)
@@ -302,15 +301,5 @@ namespace CustomListClassProject
                 return false;
             }
         }
-
-
-        
-        
-
-
-
-
-
-
-        }
+    }
 }

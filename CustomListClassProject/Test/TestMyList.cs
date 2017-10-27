@@ -9,9 +9,6 @@ namespace Test
     [TestClass]
     public class TestMyList 
     {
-
-        // ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD ADD
-
         [TestMethod]
         public void Add_Int_ToEndOfArray()
         {
@@ -56,7 +53,6 @@ namespace Test
             bool addedValue = true;
             //Act
             list.Add(addedValue);
-
             //Assert
             Assert.AreEqual(list[3], addedValue);
         }
@@ -85,10 +81,6 @@ namespace Test
             //Assert
             Assert.AreEqual(list.Count, expectedLength);
         }
-
-
-
-        // REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
 
         [TestMethod]
         public void Remove_Int_FirstMatchingIntRemoved()
@@ -188,10 +180,7 @@ namespace Test
             //Assert
             Assert.AreEqual(intList.Count, 4);
         }
-
-
-        //++++++++ PLUS OPERATOR OVERLOAD ++++++++++ PLUS OPERATOR OVERLOAD ++++++++++ 
-
+        
         [TestMethod]
         public void PlusOverload_AddIntMyLists_Combined()
         {
@@ -231,11 +220,6 @@ namespace Test
             Assert.AreEqual(expected[3], result[3]);
         }
 
-
-
-
-        //--------MINUS OPERATOR OVERLOAD ---------- MINUS OPERATOR OVERLOAD ----------
-
         [TestMethod]
         public void MinusOverload_SubtractIntLists_MatchingValuesRemoved()
         {
@@ -253,9 +237,9 @@ namespace Test
         public void MinusOverload_SubtractStringMyLists_MatchingValuesRemoved()
         {
             //Arrange
-            MyList<string> myList1 = new MyList<string>() { "1", "2", "3", "4", "5", "6" };
-            MyList<string> myList2 = new MyList<string>() { "1", "3", "5" };
-            MyList<string> expected = new MyList<string>() { "2", "4", "6" };
+            MyList<string> myList1 = new MyList<string>() { "one", "two", "three", "four", "five", "six" };
+            MyList<string> myList2 = new MyList<string>() { "one", "three", "five" };
+            MyList<string> expected = new MyList<string>() { "two", "four", "six" };
             //Act
             MyList<string> result = myList1 - myList2;
             //Assert
@@ -274,9 +258,7 @@ namespace Test
             //Assert
             Assert.AreEqual(expected[1], result[1]);
         }
-
-        // TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING TO STRING
-
+        
         [TestMethod]
         public void ToString_Int_ToString()
         {
@@ -312,11 +294,7 @@ namespace Test
             //Assert
             Assert.AreEqual (result, expected);
         }
-
-
-
-        // ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP ZIP
-
+        
         [TestMethod]
         public void Zip_TwoArrays_AreZipped()
         {
@@ -338,17 +316,11 @@ namespace Test
             MyList<int> oddList = new MyList<int> { 1, 3, 5 };
             MyList<int> evenList = new MyList<int> { 2, 4, 6, 8, 10 };
             MyList<int> combinedLists = new MyList<int>();
-            MyList<int> expected = new MyList<int> { 1, 2, 3, 4, 5, 6, 0, 8, 0, 10 };
+            MyList<int> expected = new MyList<int> { 1, 2, 3, 4, 5, 6 };
             //Act
             MyList<int> result = combinedLists.Zip(oddList, evenList);
             //Assert
-            Assert.AreEqual(result[0], expected[0]);
-            Assert.AreEqual(result[1], expected[1]);
-            Assert.AreEqual(result[2], expected[2]);
-            Assert.AreEqual(result[3], expected[3]);
-            Assert.AreEqual(result[4], expected[4]);
             Assert.AreEqual(result[5], expected[5]);
-            Assert.AreEqual(result[6], expected[6]);
         }
 
         [TestMethod]
@@ -381,27 +353,17 @@ namespace Test
 
 
 
-
-
-
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    //Arrange
-        //    //Act
-        //    //Assert
-        //}
-
-
-            //Assert.AreEqual(result[0], expected[0]);
-            //Assert.AreEqual(result[1], expected[1]);
-            //Assert.AreEqual(result[2], expected[2]);
-            //Assert.AreEqual(result[3], expected[3]);
-            //Assert.AreEqual(result[4], expected[4]);
-            //Assert.AreEqual(result[5], expected[5]);
-            //Assert.AreEqual(result[6], expected[6]);
-
-
+        [TestMethod]
+        public void SortBonus_IntList_Reordered()
+        {
+            //Arrange
+            MyList<int> intList = new MyList<int>() { 5, 4, 3, 2, 1 };
+            MyList<int> expected = new MyList<int>() { 1, 2, 3, 4, 5 };
+            //Act
+            intList.SortBonus(intList);
+            //Assert
+            Assert.AreEqual(intList[4], expected[4]);
+        }
 
 
     }
